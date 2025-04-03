@@ -9,11 +9,15 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     const value = event.target.value;
     setQuery(value);
 
-    const filteredSuggestions = allLocations.filter((location) =>
-      location.toLowerCase().includes(value.toLowerCase())
-    );
+    if (allLocations && allLocations.length > 0) {
+      const filteredSuggestions = allLocations.filter((location) =>
+        location.toLowerCase().includes(value.toLowerCase())
+      );
+      setSuggestions(filteredSuggestions);
+    } else {
+      setSuggestions([]);
+    }
 
-    setSuggestions(filteredSuggestions);
     setShowSuggestions(true);
   };
 
