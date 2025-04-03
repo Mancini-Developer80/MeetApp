@@ -14,7 +14,7 @@ export const extractLocations = (events) => {
  */
 export const getEvents = async () => {
   if (window.location.href.startsWith("http://localhost")) {
-    return mockData;
+    return mockData || []; // Ensure mockData is an array
   }
   const token = await getAccessToken();
 
@@ -23,10 +23,14 @@ export const getEvents = async () => {
     const url = "YOUR_GET_EVENTS_API_ENDPOINT" + "/" + token;
     const response = await fetch(url);
     const result = await response.json();
-    if (result) {
-      return result.events;
-    } else return null;
+    if (result && result.events) {
+      return result.events; // Return events array
+    } else {
+      console.error("No events found in API response");
+      return []; // Return an empty array if no events
+    }
   }
+  return [];
 };
 
 const removeQuery = () => {
