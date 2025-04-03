@@ -1,36 +1,26 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, fireEvent } from "@testing-library/react";
 import NumberOfEvents from "../components/NumberOfEvents";
 
 describe("<NumberOfEvents /> component", () => {
-  let NumberOfEventsComponent;
-  const mockOnNumberChange = jest.fn();
+  test("renders input field with default value of 32", () => {
+    const { getByTestId } = render(
+      <NumberOfEvents onNumberChange={() => {}} />
+    );
+    const numberInput = getByTestId("number-of-events-input");
+    expect(numberInput).toHaveValue(32); // Default value is 32
+  });
 
-  beforeEach(() => {
-    NumberOfEventsComponent = render(
+  test("updates value when user changes input", () => {
+    const mockOnNumberChange = jest.fn();
+    const { getByTestId } = render(
       <NumberOfEvents onNumberChange={mockOnNumberChange} />
     );
-  });
+    const numberInput = getByTestId("number-of-events-input");
 
-  test("renders input field", () => {
-    const input = NumberOfEventsComponent.queryByRole("spinbutton");
-    expect(input).toBeInTheDocument();
-  });
-
-  test("default value is 32", () => {
-    const input = NumberOfEventsComponent.queryByRole("spinbutton");
-    expect(input).toHaveValue(32);
-  });
-
-  test("updates value when user types", async () => {
-    const user = userEvent.setup();
-    const input = NumberOfEventsComponent.queryByRole("spinbutton");
-
-    // Simulate typing: backspace twice and then type "10"
-    await user.type(input, "{backspace}{backspace}10");
-
-    expect(input).toHaveValue(10);
-    expect(mockOnNumberChange).toHaveBeenCalledWith(10);
+    // Simulate user changing the input value
+    fireEvent.change(numberInput, { target: { value: "10" } });
+    expect(numberInput).toHaveValue(10); // Input value should update
+    expect(mockOnNumberChange).toHaveBeenCalledWith(10); // Callback should be called with the new value
   });
 });

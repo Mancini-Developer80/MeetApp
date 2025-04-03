@@ -1,12 +1,12 @@
-import React, { useState } from "react"; // Import useState
+import React, { useState } from "react";
 
 const NumberOfEvents = ({ onNumberChange }) => {
-  const [number, setNumber] = useState(32);
+  const [number, setNumber] = useState(32); // Default to 32 events
 
   const handleInputChange = (event) => {
     const value = parseInt(event.target.value, 10) || 0;
     setNumber(value);
-    onNumberChange(value);
+    onNumberChange(value); // Call the prop function
   };
 
   return (

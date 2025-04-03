@@ -1,8 +1,9 @@
-import React, { useState } from "react"; // Import useState
+import React, { useState } from "react";
 
-const CitySearch = ({ allLocations }) => {
+const CitySearch = ({ allLocations, setCurrentCity }) => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -13,10 +14,14 @@ const CitySearch = ({ allLocations }) => {
     );
 
     setSuggestions(filteredSuggestions);
+    setShowSuggestions(true);
   };
 
-  const handleInputFocus = () => {
-    setSuggestions(allLocations); // Show all locations when the textbox gains focus
+  const handleItemClicked = (event) => {
+    const value = event.target.textContent;
+    setQuery(value); // Update the query with the selected suggestion
+    setShowSuggestions(false); // Hide the suggestions list
+    setCurrentCity(value); // Update the global state currentCity in App
   };
 
   return (
@@ -26,24 +31,22 @@ const CitySearch = ({ allLocations }) => {
         className="city"
         value={query}
         onChange={handleInputChange}
-        onFocus={handleInputFocus} // Add focus handler
         placeholder="Search for a city"
       />
-      {suggestions.length > 0 || query ? (
-        <ul className="suggestions">
-          {suggestions.length > 0 ? (
-            <>
-              {suggestions.map((suggestion, index) => (
-                <li key={index}>{suggestion}</li>
-              ))}
-              <li>See all cities</li>
-            </>
-          ) : (
-            <li>No suggestions available</li>
-          )}
+      {showSuggestions && (
+        <ul className="suggestions" role="list">
+          {suggestions.map((suggestion) => (
+            <li role="listitem" onClick={handleItemClicked} key={suggestion}>
+              {suggestion}
+            </li>
+          ))}
+          <li role="listitem" key="See all cities" onClick={handleItemClicked}>
+            <b>See all cities</b>
+          </li>
         </ul>
-      ) : null}
+      )}
     </div>
   );
 };
+
 export default CitySearch;

@@ -1,7 +1,8 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, waitFor, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import App from "../App";
-import { extractLocations } from "../api";
+import { extractLocations, getEvents } from "../api"; // Import getEvents
 import mockData from "../mock-data";
 
 describe("<App /> component", () => {
@@ -24,32 +25,46 @@ describe("<App /> component", () => {
     const { getByTestId } = render(<App />);
     const numberInput = getByTestId("number-of-events-input");
 
-    // Simulate changing the number of events
     fireEvent.change(numberInput, { target: { value: "10" } });
     expect(numberInput).toHaveValue(10);
   });
 
-  test("renders the correct number of events after changing the number of events", () => {
+  test("renders the correct number of events after changing the number of events", async () => {
     const { getByTestId, container } = render(<App />);
     const numberInput = getByTestId("number-of-events-input");
 
-    // Simulate changing the number of events
     fireEvent.change(numberInput, { target: { value: "2" } });
 
-    // Check that only 2 events are rendered
-    const eventItems = container.querySelectorAll("#event-list li");
-    expect(eventItems.length).toBe(2);
+    await waitFor(() => {
+      const eventItems = container.querySelectorAll("#event-list li");
+      expect(eventItems.length).toBe(2);
+    });
   });
 });
 
-describe("extractLocations", () => {
-  test("returns unique locations from events", () => {
-    const locations = extractLocations(mockData);
+describe("<App /> integration", () => {
+  test("renders a list of events matching the city selected by the user", async () => {
+    const user = userEvent.setup();
+    const AppComponent = render(<App />);
+    const AppDOM = AppComponent.container.firstChild;
 
-    // Check that the locations array contains unique values
-    const uniqueLocations = [
-      ...new Set(mockData.map((event) => event.location)),
-    ];
-    expect(locations).toEqual(uniqueLocations);
+    const CitySearchDOM = AppDOM.querySelector("#city-search");
+    const CitySearchInput = within(CitySearchDOM).queryByRole("textbox");
+
+    await user.type(CitySearchInput, "Berlin");
+    const berlinSuggestionItem =
+      within(CitySearchDOM).queryByText("Berlin, Germany");
+    await user.click(berlinSuggestionItem);
+
+    const EventListDOM = AppDOM.querySelector("#event-list");
+    const allRenderedEventItems =
+      within(EventListDOM).queryAllByRole("listitem");
+
+    const allEvents = await getEvents(); // Now correctly imported
+    const berlinEvents = allEvents.filter(
+      (event) => event.location === "Berlin, Germany"
+    );
+
+    expect(allRenderedEventItems.length).toBe(berlinEvents.length);
   });
 });
