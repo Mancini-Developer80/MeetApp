@@ -9,23 +9,24 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     const value = event.target.value;
     setQuery(value);
 
-    if (allLocations && allLocations.length > 0) {
-      const filteredSuggestions = allLocations.filter((location) =>
-        location.toLowerCase().includes(value.toLowerCase())
-      );
-      setSuggestions(filteredSuggestions);
-    } else {
-      setSuggestions([]);
-    }
-
-    setShowSuggestions(true);
+    const filteredSuggestions = allLocations.filter((location) =>
+      location.toLowerCase().includes(value.toLowerCase())
+    );
+    setSuggestions(filteredSuggestions); // Update suggestions based on input
+    setShowSuggestions(true); // Show suggestions when user types
   };
 
   const handleItemClicked = (event) => {
     const value = event.target.textContent;
-    setQuery(value); // Update the query with the selected suggestion
-    setShowSuggestions(false); // Hide the suggestions list
-    setCurrentCity(value); // Update the global state currentCity in App
+    if (!value) return;
+    setQuery(value);
+    setShowSuggestions(false);
+    setCurrentCity(value);
+  };
+
+  const handelInputFocus = () => {
+    const locations = allLocations.map((event) => event.location);
+    setSuggestions(allLocations); // Show all locations when input is focused
   };
 
   return (
@@ -35,6 +36,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
         className="city"
         value={query}
         onChange={handleInputChange}
+        onFocus={handelInputFocus}
         placeholder="Search for a city"
       />
       {showSuggestions && (

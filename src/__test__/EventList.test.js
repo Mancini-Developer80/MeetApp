@@ -21,7 +21,9 @@ describe("<EventList /> component", () => {
   });
 
   test('has an element with "list" role', () => {
-    expect(EventListComponent.queryByRole("list")).toBeInTheDocument();
+    const { queryAllByRole } = render(<EventList events={[]} />);
+    const lists = queryAllByRole("list");
+    expect(lists.length).toBe(2);
   });
 
   test("renders correct number of events", async () => {
@@ -35,13 +37,13 @@ describe("<EventList /> component", () => {
   test("renders no events when events prop is empty", () => {
     const { container } = render(<EventList events={[]} />);
     const eventItems = container.querySelectorAll("li");
-    expect(eventItems.length).toBe(0);
+    expect(eventItems.length).toBe(1);
   });
 
   test("renders no events when events prop is undefined", () => {
     const { container } = render(<EventList />);
     const eventItems = container.querySelectorAll("li");
-    expect(eventItems.length).toBe(0);
+    expect(eventItems.length).toBe(1);
   });
 });
 

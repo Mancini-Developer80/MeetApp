@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
-import { extractLocations, getEvents } from "../api"; // Import getEvents
+import { extractLocations, getEvents, getAccessToken } from "../api"; // Import getEvents
 import mockData from "../mock-data";
 
 describe("<App /> component", () => {
@@ -40,6 +40,20 @@ describe("<App /> component", () => {
       expect(eventItems.length).toBe(2);
     });
   });
+  test("fetches events and extracts locations", async () => {
+    const events = await getEvents();
+    expect(events).toEqual(mockData);
+
+    const locations = extractLocations(events);
+    expect(locations).toEqual([
+      ...new Set(mockData.map((event) => event.location)),
+    ]);
+  });
+
+  // test("handles getAccessToken correctly", async () => {
+  //   const token = await getAccessToken();
+  //   expect(token).toBe("mock-token");
+  // });
 });
 
 describe("<App /> integration", () => {

@@ -32,4 +32,12 @@ describe("<CitySearch /> component", () => {
     expect(suggestionsListItems[0].textContent).toBe("Berlin, Germany");
     expect(suggestionsListItems[1].textContent).toBe("See all cities");
   });
+  test("handles empty input gracefully", () => {
+    const { getByPlaceholderText } = render(
+      <CitySearch allLocations={[]} setCurrentCity={() => {}} />
+    );
+    const input = getByPlaceholderText("Search for a city");
+    fireEvent.change(input, { target: { value: "" } });
+    expect(input.value).toBe("");
+  });
 });

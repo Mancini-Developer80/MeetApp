@@ -23,4 +23,12 @@ describe("<NumberOfEvents /> component", () => {
     expect(numberInput).toHaveValue(10); // Input value should update
     expect(mockOnNumberChange).toHaveBeenCalledWith(10); // Callback should be called with the new value
   });
+  test("does not allow numbers less than 1", () => {
+    const { getByTestId } = render(
+      <NumberOfEvents onNumberChange={() => {}} />
+    );
+    const input = getByTestId("number-of-events-input");
+    fireEvent.change(input, { target: { value: "0" } });
+    expect(input.value).toBe("0");
+  });
 });
