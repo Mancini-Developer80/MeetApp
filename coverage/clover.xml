@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1743932818381" clover="3.2.0">
-  <project timestamp="1743932818382" name="All files">
+<coverage generated="1743954825216" clover="3.2.0">
+  <project timestamp="1743954825217" name="All files">
     <metrics statements="104" coveredstatements="86" conditionals="43" coveredconditionals="28" methods="24" coveredmethods="23" elements="171" coveredelements="137" complexity="0" loc="104" ncloc="104" packages="2" files="7" classes="7"/>
     <package name="src">
       <metrics statements="67" coveredstatements="49" conditionals="30" coveredconditionals="16" methods="11" coveredmethods="10"/>
@@ -15,7 +15,7 @@
         <line num="14" count="10" type="stmt"/>
         <line num="15" count="10" type="stmt"/>
         <line num="17" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="3" type="stmt"/>
+        <line num="19" count="10" type="stmt"/>
         <line num="20" count="10" type="stmt"/>
         <line num="21" count="10" type="stmt"/>
         <line num="23" count="10" type="stmt"/>
@@ -24,7 +24,7 @@
       <file name="api.js" path="C:\Users\pc\Desktop\CareerFoundry\MeetUp\meet\src\api.js">
         <metrics statements="52" coveredstatements="34" conditionals="28" coveredconditionals="14" methods="7" coveredmethods="6"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="7" count="33" type="stmt"/>
+        <line num="7" count="103" type="stmt"/>
         <line num="8" count="11" type="stmt"/>
         <line num="9" count="11" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
@@ -93,7 +93,7 @@
         <line num="9" count="13" type="stmt"/>
         <line num="10" count="13" type="stmt"/>
         <line num="12" count="13" type="stmt"/>
-        <line num="13" count="39" type="stmt"/>
+        <line num="13" count="123" type="stmt"/>
         <line num="15" count="13" type="stmt"/>
         <line num="16" count="13" type="stmt"/>
         <line num="19" count="34" type="stmt"/>
@@ -103,7 +103,7 @@
         <line num="23" count="2" type="stmt"/>
         <line num="24" count="2" type="stmt"/>
         <line num="27" count="34" type="stmt"/>
-        <line num="28" count="6" type="stmt"/>
+        <line num="28" count="20" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
         <line num="32" count="34" type="stmt"/>
         <line num="45" count="13" type="stmt"/>
@@ -111,16 +111,16 @@
       <file name="Event.jsx" path="C:\Users\pc\Desktop\CareerFoundry\MeetUp\meet\src\components\Event.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="3" count="3" type="stmt"/>
-        <line num="4" count="25" type="stmt"/>
-        <line num="6" count="25" type="stmt"/>
+        <line num="4" count="53" type="stmt"/>
+        <line num="6" count="53" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
-        <line num="10" count="25" type="stmt"/>
+        <line num="10" count="53" type="stmt"/>
       </file>
       <file name="EventList.jsx" path="C:\Users\pc\Desktop\CareerFoundry\MeetUp\meet\src\components\EventList.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="4" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="5" count="22" type="stmt"/>
-        <line num="8" count="15" type="stmt"/>
+        <line num="8" count="43" type="stmt"/>
       </file>
       <file name="NumberOfEvents.jsx" path="C:\Users\pc\Desktop\CareerFoundry\MeetUp\meet\src\components\NumberOfEvents.jsx">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>

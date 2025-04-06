@@ -44,7 +44,7 @@ describe("api.js", () => {
     const events = await getEvents();
     expect(events).toEqual(mockData);
     expect(fetch).toHaveBeenCalledWith(
-      "YOUR_GET_EVENTS_API_ENDPOINT/mock-token"
+      "https://meet-app-git-main-giuseppes-projects-44470569.vercel.app/api/events/mock-token"
     );
   });
 
@@ -82,7 +82,7 @@ describe("api.js", () => {
     expect(token).toBe("mockAccessToken");
     expect(localStorage.getItem("access_token")).toBe("mockAccessToken");
     expect(fetch).toHaveBeenCalledWith(
-      "YOUR_GET_ACCESS_TOKEN_ENDPOINT/mockCode"
+      "https://oauth2.googleapis.com/token/mockCode"
     );
   });
 
@@ -111,14 +111,21 @@ describe("api.js", () => {
 
   test("getAccessToken redirects to auth URL when no code is present", async () => {
     delete window.location;
-    window.location = new URL("https://example.com");
+    window.location = new URL(
+      "https://meet-app-git-main-giuseppes-projects-44470569.vercel.app"
+    );
 
     fetch.mockResolvedValueOnce({
-      json: () => Promise.resolve({ authUrl: "https://auth.example.com" }),
+      json: () =>
+        Promise.resolve({
+          authUrl: "https://accounts.google.com/o/oauth2/auth",
+        }),
     });
 
     await getAccessToken();
-    expect(window.location.href).toBe("https://auth.example.com");
+    expect(window.location.href).toBe(
+      "https://accounts.google.com/o/oauth2/auth"
+    );
   });
 
   test("getAccessToken fetches token using code when present", async () => {
