@@ -20,7 +20,7 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url = "YOUR_GET_EVENTS_API_ENDPOINT" + "/" + token;
+    const url = `https://meet-app-git-main-giuseppes-projects-44470569.vercel.app/api/get-calendar-events/${token}`;
     const response = await fetch(url);
     const result = await response.json();
     if (result && result.events) {
@@ -61,7 +61,7 @@ const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
 
     const response = await fetch(
-      "YOUR_GET_ACCESS_TOKEN_ENDPOINT" + "/" + encodeCode
+      `https://meet-app-git-main-giuseppes-projects-44470569.vercel.app/api/get-access-token/${encodeCode}`
     );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -70,7 +70,8 @@ const getToken = async (code) => {
     access_token && localStorage.setItem("access_token", access_token);
     return access_token;
   } catch (error) {
-    error.json();
+    console.error("Error fetching token:", error.message);
+    throw error;
   }
 };
 
@@ -84,7 +85,9 @@ export const getAccessToken = async () => {
     const searchParams = new URLSearchParams(window.location.search);
     const code = await searchParams.get("code");
     if (!code) {
-      const response = await fetch("YOUR_SERVERLESS_GET_AUTH_URL_ENDPOINT");
+      const response = await fetch(
+        "https://meet-app-git-main-giuseppes-projects-44470569.vercel.app/api/get-auth-url"
+      );
       const result = await response.json();
       const { authUrl } = result;
       return (window.location.href = authUrl);
