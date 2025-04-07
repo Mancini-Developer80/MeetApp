@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 const NumberOfEvents = ({ onNumberChange }) => {
-  const [number, setNumber] = useState(32); // Default to 32 events
-
+  const [number, setNumber] = useState(10);
   const handleInputChange = (event) => {
     const value = parseInt(event.target.value, 10) || 0;
     setNumber(value);

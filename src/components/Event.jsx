@@ -8,18 +8,18 @@ const Event = ({ event }) => {
   };
 
   return (
-    <li>
+    <li className="event">
       <h2>{event.summary}</h2>
       <p>{event.location}</p>
       {showDetails && (
         <>
-          <p>{event.description}</p>
+          <p className="details">{event.description}</p>
           <p>Created: {event.created}</p>
           <p>{event.start.dateTime}</p>
           <p>{event.end.dateTime}</p>
         </>
       )}
-      <button onClick={handleToggleDetails}>
+      <button className="details-btn" onClick={handleToggleDetails}>
         {showDetails ? "Hide Details" : "Show Details"}
       </button>
     </li>
