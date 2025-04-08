@@ -20,7 +20,7 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url = `https://meet-app-git-main-giuseppes-projects-44470569.vercel.app/api/get-calendar-events/${token}`;
+    const url = `https://m10gs2zvy6.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}`;
     const response = await fetch(url);
     const result = await response.json();
     if (result && result.events) {
@@ -61,7 +61,7 @@ const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
 
     const response = await fetch(
-      `https://meet-app-git-main-giuseppes-projects-44470569.vercel.app/api/get-access-token/${encodeCode}`
+      `https://m10gs2zvy6.execute-api.eu-central-1.amazonaws.com/dev/api/token/${encodeCode}`
     );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -86,7 +86,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const response = await fetch(
-        "https://meet-app-git-main-giuseppes-projects-44470569.vercel.app/api/get-auth-url"
+        "https://m10gs2zvy6.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url"
       );
       const result = await response.json();
       const { authUrl } = result;
