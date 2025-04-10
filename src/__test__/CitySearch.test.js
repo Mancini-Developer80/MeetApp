@@ -100,3 +100,16 @@ describe("<CitySearch /> component", () => {
     expect(suggestionsList).not.toBeInTheDocument();
   });
 });
+
+describe("<CitySearch /> component", () => {
+  let CitySearchComponent;
+  beforeEach(() => {
+    CitySearchComponent = render(
+      <CitySearch
+        allLocations={[]}
+        setCurrentCity={() => {}}
+        setInfoAlert={() => {}}
+      />
+    );
+  });
+});

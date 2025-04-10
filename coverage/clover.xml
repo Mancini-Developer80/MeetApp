@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1744268743752" clover="3.2.0">
-  <project timestamp="1744268743752" name="All files">
-    <metrics statements="112" coveredstatements="69" conditionals="53" coveredconditionals="25" methods="23" coveredmethods="19" elements="188" coveredelements="113" complexity="0" loc="112" ncloc="112" packages="2" files="7" classes="7"/>
+<coverage generated="1744305771268" clover="3.2.0">
+  <project timestamp="1744305771268" name="All files">
+    <metrics statements="126" coveredstatements="74" conditionals="57" coveredconditionals="28" methods="27" coveredmethods="19" elements="210" coveredelements="121" complexity="0" loc="126" ncloc="126" packages="2" files="8" classes="8"/>
     <package name="src">
-      <metrics statements="68" coveredstatements="26" conditionals="30" coveredconditionals="4" methods="11" coveredmethods="7"/>
+      <metrics statements="68" coveredstatements="26" conditionals="32" coveredconditionals="5" methods="11" coveredmethods="7"/>
       <file name="App.jsx" path="C:\Users\pc\Desktop\CareerFoundry\MeetUp\meet\src\App.jsx">
-        <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="7" count="5" type="stmt"/>
+        <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
         <line num="8" count="42" type="stmt"/>
         <line num="9" count="38" type="stmt"/>
         <line num="10" count="38" type="stmt"/>
         <line num="11" count="38" type="stmt"/>
-        <line num="13" count="38" type="stmt"/>
-        <line num="14" count="22" type="stmt"/>
+        <line num="12" count="38" type="stmt"/>
+        <line num="14" count="38" type="stmt"/>
         <line num="15" count="22" type="stmt"/>
-        <line num="17" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="64" type="stmt"/>
-        <line num="20" count="22" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="18" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="64" type="stmt"/>
         <line num="21" count="22" type="stmt"/>
-        <line num="23" count="22" type="stmt"/>
-        <line num="26" count="38" type="stmt"/>
+        <line num="22" count="22" type="stmt"/>
+        <line num="24" count="22" type="stmt"/>
+        <line num="27" count="38" type="stmt"/>
       </file>
       <file name="api.js" path="C:\Users\pc\Desktop\CareerFoundry\MeetUp\meet\src\api.js">
         <metrics statements="53" coveredstatements="11" conditionals="28" coveredconditionals="2" methods="7" coveredmethods="3"/>
@@ -83,9 +83,21 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="44" coveredstatements="43" conditionals="23" coveredconditionals="21" methods="12" coveredmethods="12"/>
+      <metrics statements="58" coveredstatements="48" conditionals="25" coveredconditionals="23" methods="16" coveredmethods="12"/>
+      <file name="Alert.jsx" path="C:\Users\pc\Desktop\CareerFoundry\MeetUp\meet\src\components\Alert.jsx">
+        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+      </file>
       <file name="CitySearch.jsx" path="C:\Users\pc\Desktop\CareerFoundry\MeetUp\meet\src\components\CitySearch.jsx">
-        <metrics statements="21" coveredstatements="21" conditionals="8" coveredconditionals="7" methods="6" coveredmethods="6"/>
+        <metrics statements="26" coveredstatements="26" conditionals="10" coveredconditionals="9" methods="6" coveredmethods="6"/>
         <line num="3" count="6" type="stmt"/>
         <line num="4" count="80" type="stmt"/>
         <line num="5" count="80" type="stmt"/>
@@ -97,16 +109,21 @@
         <line num="13" count="780" type="stmt"/>
         <line num="15" count="28" type="stmt"/>
         <line num="16" count="28" type="stmt"/>
-        <line num="19" count="80" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
-        <line num="21" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="23" count="5" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
-        <line num="27" count="80" type="stmt"/>
-        <line num="28" count="4" type="stmt"/>
-        <line num="31" count="80" type="stmt"/>
-        <line num="44" count="63" type="stmt"/>
+        <line num="20" count="28" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="27" type="stmt"/>
+        <line num="26" count="28" type="stmt"/>
+        <line num="29" count="80" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="31" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="38" count="80" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="42" count="80" type="stmt"/>
+        <line num="55" count="63" type="stmt"/>
       </file>
       <file name="Event.jsx" path="C:\Users\pc\Desktop\CareerFoundry\MeetUp\meet\src\components\Event.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CitySearch = ({ allLocations, setCurrentCity }) => {
+const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -14,6 +14,16 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     );
     setSuggestions(filteredSuggestions); // Update suggestions based on input
     setShowSuggestions(true); // Show suggestions when user types
+
+    // Set info alert based on whether there are matching suggestions
+    let infoText;
+    if (filteredSuggestions.length === 0) {
+      infoText =
+        "We can not find the city you are looking for. Please try another city";
+    } else {
+      infoText = "";
+    }
+    setInfoAlert(infoText);
   };
 
   const handleItemClicked = (event) => {
@@ -22,6 +32,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     setQuery(value);
     setShowSuggestions(false);
     setCurrentCity(value);
+    setInfoAlert("");
   };
 
   const handelInputFocus = () => {
