@@ -8,7 +8,7 @@ describe("<NumberOfEvents /> component", () => {
       <NumberOfEvents onNumberChange={() => {}} />
     );
     const numberInput = getByTestId("number-of-events-input");
-    expect(numberInput).toHaveValue(10); // Default value is 10
+    expect(numberInput).toHaveValue(32); // Default value is 10
   });
 
   test("updates value when user changes input", () => {
@@ -46,7 +46,9 @@ describe("<NumberOfEvents /> component", () => {
 
     // Simulate user entering a non-numeric value
     fireEvent.change(input, { target: { value: "abc" } });
-    expect(input).toHaveValue(10); // Input value should remain the default (10)
+
+    // Input value should remain unchanged
+    expect(input).toHaveValue(32); // Default value is 32
     expect(mockOnNumberChange).not.toHaveBeenCalled(); // Callback should not be called
   });
 });

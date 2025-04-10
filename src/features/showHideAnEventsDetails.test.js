@@ -51,10 +51,10 @@ defineFeature(feature, (test) => {
     when("the user clicks on an event", async () => {
       await waitFor(() => {
         expect(
-          screen.getAllByRole("button", { name: "show details" }).length
+          screen.getAllByRole("button", { name: "Show Details" }).length
         ).toBeGreaterThan(0);
       });
-      const event = screen.getAllByRole("button", { name: "show details" })[0];
+      const event = screen.getAllByRole("button", { name: "Show Details" })[0];
       await userEvent.click(event);
     });
 
@@ -82,10 +82,10 @@ defineFeature(feature, (test) => {
       });
       await waitFor(() => {
         expect(
-          screen.getAllByRole("button", { name: "show details" }).length
+          screen.getAllByRole("button", { name: "Show Details" }).length
         ).toBeGreaterThan(0);
       });
-      const event = screen.getAllByRole("button", { name: "show details" })[0];
+      const event = screen.getAllByRole("button", { name: "Show Details" })[0];
       await userEvent.click(event);
       await waitFor(() => {
         expect(screen.getByTestId("event-details")).toBeInTheDocument();
@@ -93,7 +93,7 @@ defineFeature(feature, (test) => {
     });
 
     when("the user clicks on the same event", async () => {
-      const event = screen.getAllByRole("button", { name: "hide details" })[0];
+      const event = screen.getAllByRole("button", { name: "Hide Details" })[0];
       await userEvent.click(event);
     });
 

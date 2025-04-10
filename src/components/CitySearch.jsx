@@ -25,7 +25,6 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
   };
 
   const handelInputFocus = () => {
-    const locations = allLocations.map((event) => event.location);
     setSuggestions(allLocations); // Show all locations when input is focused
   };
 
@@ -39,7 +38,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
         onFocus={handelInputFocus}
         placeholder="Search for a city"
       />
-      {showSuggestions && (
+      {showSuggestions && suggestions.length > 0 && (
         <ul className="suggestions" role="list">
           {suggestions.map((suggestion) => (
             <li role="listitem" onClick={handleItemClicked} key={suggestion}>
@@ -50,6 +49,11 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
             <b>See all cities</b>
           </li>
         </ul>
+      )}
+      {showSuggestions && suggestions.length === 0 && (
+        <p className="no-suggestions" role="alert">
+          <i>No matching suggestions</i>
+        </p>
       )}
     </div>
   );

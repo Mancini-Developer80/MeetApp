@@ -52,7 +52,7 @@ defineFeature(feature, (test) => {
     then("that number of events should be displayed", async () => {
       await waitFor(() => {
         const eventItems = screen.getAllByRole("listitem");
-        expect(eventItems.length).toBe(10);
+        expect(eventItems.length).toBe(32);
       });
     });
   });

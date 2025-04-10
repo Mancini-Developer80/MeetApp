@@ -12,12 +12,16 @@ const Event = ({ event }) => {
       <h2>{event.summary}</h2>
       <p>{event.location}</p>
       {showDetails && (
-        <>
+        <div data-testid="event-details">
           <p className="details">{event.description}</p>
           <p>Created: {event.created}</p>
-          <p>{event.start.dateTime}</p>
-          <p>{event.end.dateTime}</p>
-        </>
+          <p>
+            <strong>Start: </strong> {event.start.dateTime}
+          </p>
+          <p>
+            <strong>End: </strong> {event.end.dateTime}
+          </p>
+        </div>
       )}
       <button className="details-btn" onClick={handleToggleDetails}>
         {showDetails ? "Hide Details" : "Show Details"}

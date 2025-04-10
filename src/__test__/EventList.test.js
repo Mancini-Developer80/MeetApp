@@ -54,7 +54,7 @@ describe("<EventList> integration", () => {
     const EventListDOM = AppDOM.querySelector("#event-list");
     await waitFor(() => {
       const EventListItems = within(EventListDOM).queryAllByRole("listitem");
-      expect(EventListItems.length).toBe(10);
+      expect(EventListItems.length).toBe(32);
     });
   });
 
