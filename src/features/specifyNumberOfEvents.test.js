@@ -1,6 +1,6 @@
 import React from "react";
 import { loadFeature, defineFeature } from "jest-cucumber";
-import { render, waitFor, screen } from "@testing-library/react";
+import { render, waitFor, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 
@@ -18,7 +18,9 @@ defineFeature(feature, (test) => {
       AppComponent = render(<App />);
     });
 
-    and("the user hasn’t specified a number of events to display", () => {});
+    and("the user hasn’t specified a number of events to display", () => {
+      // No additional action needed here.
+    });
 
     when("the page loads", async () => {
       await waitFor(() => {
@@ -46,13 +48,15 @@ defineFeature(feature, (test) => {
 
     when("the user specifies a number of events to display", async () => {
       const numberOfEventsInput = screen.getByRole("spinbutton");
-      await userEvent.type(numberOfEventsInput, "{backspace}{backspace}10");
+      // Instead of using userEvent.clear, use fireEvent.change to clear the input:
+      fireEvent.change(numberOfEventsInput, { target: { value: "" } });
+      await userEvent.type(numberOfEventsInput, "10");
     });
 
     then("that number of events should be displayed", async () => {
       await waitFor(() => {
         const eventItems = screen.getAllByRole("listitem");
-        expect(eventItems.length).toBe(32);
+        expect(eventItems.length).toBe(10);
       });
     });
   });
