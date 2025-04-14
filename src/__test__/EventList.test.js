@@ -63,7 +63,11 @@ describe("<EventList> integration", () => {
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
     const CitySearchComponent = render(
-      <CitySearch allLocations={allLocations} setCurrentCity={() => {}} />
+      <CitySearch
+        allLocations={allLocations}
+        setCurrentCity={() => {}}
+        setInfoAlert={() => {}}
+      />
     );
 
     const cityTextBox = CitySearchComponent.queryByRole("textbox");

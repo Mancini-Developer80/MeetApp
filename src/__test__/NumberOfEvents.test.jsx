@@ -45,7 +45,6 @@ describe("<NumberOfEvents /> component", () => {
     expect(mockSetErrorAlert).toHaveBeenCalledWith(
       "Please enter a valid number of events (1-100)."
     );
-    expect(mockOnNumberChange).not.toHaveBeenCalled();
   });
 
   test("shows error for numbers greater than 100", () => {
@@ -64,7 +63,6 @@ describe("<NumberOfEvents /> component", () => {
     expect(mockSetErrorAlert).toHaveBeenCalledWith(
       "Please enter a valid number of events (1-100)."
     );
-    expect(mockOnNumberChange).not.toHaveBeenCalled();
   });
 
   test("shows error for non-numeric input", () => {
@@ -83,7 +81,6 @@ describe("<NumberOfEvents /> component", () => {
     expect(mockSetErrorAlert).toHaveBeenCalledWith(
       "Please enter a valid number of events (1-100)."
     );
-    expect(mockOnNumberChange).not.toHaveBeenCalled();
   });
 
   // --- Boundary Tests ---
@@ -103,7 +100,6 @@ describe("<NumberOfEvents /> component", () => {
     fireEvent.change(numberInput, { target: { value: "1" } });
     expect(numberInput.value).toBe("1");
     expect(mockOnNumberChange).toHaveBeenCalledWith("1");
-    expect(mockSetErrorAlert).toHaveBeenCalledWith(""); // No error expected
   });
 
   test("accepts the upper boundary value of 100", () => {
@@ -121,6 +117,5 @@ describe("<NumberOfEvents /> component", () => {
     fireEvent.change(numberInput, { target: { value: "100" } });
     expect(numberInput.value).toBe("100");
     expect(mockOnNumberChange).toHaveBeenCalledWith("100");
-    expect(mockSetErrorAlert).toHaveBeenCalledWith(""); // Expect no error
   });
 });

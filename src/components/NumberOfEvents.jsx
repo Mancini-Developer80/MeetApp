@@ -3,34 +3,6 @@ import React, { useState } from "react";
 const NumberOfEvents = ({ onNumberChange, setErrorAlert }) => {
   const [number, setNumber] = useState(32);
 
-  // const handleInputChange = (event) => {
-  //   const value = event.target.value;
-
-  //   // Check if the input is numeric
-  //   if (!/^\d*$/.test(value)) {
-  //     return; // Ignore non-numeric input
-  //   }
-
-  //   let numericValue = parseInt(value, 10);
-
-  //   // If the input is empty, reset to the default value
-  //   if (isNaN(numericValue)) {
-  //     numericValue = 32;
-  //   }
-
-  //   // Enforce a minimum value of 1
-  //   if (numericValue < 1) {
-  //     numericValue = 1;
-  //   }
-
-  //   setNumber(numericValue);
-
-  //   // Only call onNumberChange if the original value is numeric
-  //   if (/^\d+$/.test(value)) {
-  //     onNumberChange(numericValue);
-  //   }
-  // };
-
   const handleInputChange = (event) => {
     const value = event.target.value;
 
@@ -40,9 +12,9 @@ const NumberOfEvents = ({ onNumberChange, setErrorAlert }) => {
     } else {
       // Clear the error message for valid input
       setErrorAlert("");
-      setNumber(value);
-      onNumberChange(value);
     }
+    setNumber(value);
+    onNumberChange(value);
   };
 
   return (
