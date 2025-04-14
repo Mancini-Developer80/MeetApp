@@ -3,7 +3,7 @@ import CitySearch from "./components/CitySearch";
 import EventList from "./components/EventList";
 import NumberOfEvents from "./components/NumberOfEvents";
 import { getEvents, extractLocations } from "./api";
-import { InfoAlert, ErrorAlert } from "./components/Alert";
+import { InfoAlert, ErrorAlert, WarningAlert } from "./components/Alert";
 function App() {
   const [allLocations, setAllLocations] = useState([]);
   const [currentNOE, setCurrentNOE] = useState(32);
@@ -11,19 +11,41 @@ function App() {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("");
 
   useEffect(() => {
-    const fetchData = async () => {
-      const allEvents = await getEvents();
-      const filteredEvents =
-        currentCity === "See all cities"
-          ? allEvents
-          : allEvents.filter((event) => event.location === currentCity);
-      setEvents(filteredEvents.slice(0, currentNOE));
-      setAllLocations(extractLocations(allEvents)); // Use extractLocations
-    };
+    if (navigator.onLine) {
+      setWarningAlert("");
+    } else {
+      setWarningAlert(
+        "You are offline. The displayed event list has been loaded from the cache."
+      );
+    }
     fetchData();
   }, [currentCity, currentNOE]);
+
+  const fetchData = async () => {
+    const allEvents = await getEvents();
+    const filteredEvents =
+      currentCity === "See all cities"
+        ? allEvents
+        : allEvents.filter((event) => event.location === currentCity);
+    setEvents(filteredEvents.slice(0, currentNOE));
+    setAllLocations(extractLocations(allEvents));
+  };
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const allEvents = await getEvents();
+  //     const filteredEvents =
+  //       currentCity === "See all cities"
+  //         ? allEvents
+  //         : allEvents.filter((event) => event.location === currentCity);
+  //     setEvents(filteredEvents.slice(0, currentNOE));
+  //     setAllLocations(extractLocations(allEvents));
+  //   };
+  //   fetchData();
+  // }, [currentCity, currentNOE]);
 
   return (
     <div className="App">

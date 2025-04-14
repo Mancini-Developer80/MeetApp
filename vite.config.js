@@ -8,8 +8,8 @@ export default defineConfig({
     react(),
     VitePWA({
       manifest: {
-        short_name: "React App",
-        name: "Create React App Sample",
+        short_name: "Meet App",
+        name: "Meet App | Tech events",
         icons: [
           {
             src: "favicon.ico",
