@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.29% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/27</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/10</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
@@ -135,15 +135,22 @@
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L73'></a><a href='#L73'>73</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">80x</span>
 <span class="cline-any cline-yes">80x</span>
 <span class="cline-any cline-yes">80x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">80x</span>
+=======
+<span class="cline-any cline-yes">71x</span>
+<span class="cline-any cline-yes">71x</span>
+<span class="cline-any cline-yes">71x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71x</span>
+>>>>>>> PWA
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,18 +161,21 @@
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">80x</span>
 <span class="cline-any cline-yes">5x</span>
+=======
+<span class="cline-any cline-yes">71x</span>
+>>>>>>> PWA
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -173,12 +183,16 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">80x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">80x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+<span class="cline-any cline-yes">71x</span>
+>>>>>>> PWA
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -192,6 +206,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">63x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -223,31 +243,25 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) =&gt; {
     const filteredSuggestions = allLocations.filter((location) =&gt;
       location.toLowerCase().includes(value.toLowerCase())
     );
-    setSuggestions(filteredSuggestions); // Update suggestions based on input
-    setShowSuggestions(true); // Show suggestions when user types
+    setSuggestions(filteredSuggestions);
+    setShowSuggestions(true);
 &nbsp;
-    // Set info alert based on whether there are matching suggestions
-    let infoText;
+    // Set info alert if no matching suggestions
     if (filteredSuggestions.length === 0) {
-      infoText =
-        "We can not find the city you are looking for. Please try another city";
+      setInfoAlert(
+        "We can not find the city you are looking for. Please try another city"
+      );
     } else {
-      infoText = "";
+      setInfoAlert("");
     }
-    setInfoAlert(infoText);
   };
 &nbsp;
   const handleItemClicked = (event) =&gt; {
     const value = event.target.textContent;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (!value) <span class="cstat-no" title="statement not covered" >return;</span>
     setQuery(value);
     setShowSuggestions(false);
     setCurrentCity(value);
-    setInfoAlert("");
-  };
-&nbsp;
-  const handelInputFocus = () =&gt; {
-    setSuggestions(allLocations); // Show all locations when input is focused
+    setInfoAlert(""); // Clear the info alert when a suggestion is clicked
   };
 &nbsp;
   return (
@@ -257,24 +271,29 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) =&gt; {
         className="city"
         value={query}
         onChange={handleInputChange}
-        onFocus={handelInputFocus}
         placeholder="Search for a city"
       /&gt;
       {showSuggestions &amp;&amp; suggestions.length &gt; 0 &amp;&amp; (
         &lt;ul className="suggestions" role="list"&gt;
           {suggestions.map((suggestion) =&gt; (
-            &lt;li role="listitem" onClick={handleItemClicked} key={suggestion}&gt;
+            &lt;li key={suggestion} onClick={handleItemClicked} role="listitem"&gt;
               {suggestion}
             &lt;/li&gt;
           ))}
-          &lt;li role="listitem" key="See all cities" onClick={handleItemClicked}&gt;
+          &lt;li
+            key="See all cities"
+            onClick={() =&gt;
+              handleItemClicked({ target: { textContent: "See all cities" } })
+            }
+            role="listitem"
+          &gt;
             &lt;b&gt;See all cities&lt;/b&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
       )}
       {showSuggestions &amp;&amp; suggestions.length === 0 &amp;&amp; (
         &lt;p className="no-suggestions" role="alert"&gt;
-          &lt;i&gt;No matching suggestions&lt;/i&gt;
+          No matching suggestions
         &lt;/p&gt;
       )}
     &lt;/div&gt;
@@ -289,7 +308,11 @@ export default CitySearch;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2025-04-14T12:35:07.072Z
+=======
+                at 2025-04-14T07:41:43.867Z
+>>>>>>> PWA
             </div>
         <script src="../../prettify.js"></script>
         <script>

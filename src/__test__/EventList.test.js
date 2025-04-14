@@ -62,6 +62,7 @@ describe("<EventList> integration", () => {
     const user = userEvent.setup();
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
+
     const CitySearchComponent = render(
       <CitySearch
         allLocations={allLocations}
