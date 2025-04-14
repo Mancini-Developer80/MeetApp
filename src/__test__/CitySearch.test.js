@@ -137,8 +137,5 @@ describe("<CitySearch /> component", () => {
     // The no suggestions alert should be visible
     const noSuggestionAlert = getByRole("alert");
     expect(noSuggestionAlert).toHaveTextContent("No matching suggestions");
-
-    // Optionally, you can check if setInfoAlert was called with the error message in earlier behavior when there are no matches
-    // e.g., expect(mockSetInfoAlert).toHaveBeenCalledWith("We can not find the city you are looking for. Please try another city");
   });
 });

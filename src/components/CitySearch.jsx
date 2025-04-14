@@ -12,31 +12,25 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
     const filteredSuggestions = allLocations.filter((location) =>
       location.toLowerCase().includes(value.toLowerCase())
     );
-    setSuggestions(filteredSuggestions); // Update suggestions based on input
-    setShowSuggestions(true); // Show suggestions when user types
+    setSuggestions(filteredSuggestions);
+    setShowSuggestions(true);
 
-    // Set info alert based on whether there are matching suggestions
-    let infoText;
+    // Set info alert if no matching suggestions
     if (filteredSuggestions.length === 0) {
-      infoText =
-        "We can not find the city you are looking for. Please try another city";
+      setInfoAlert(
+        "We can not find the city you are looking for. Please try another city"
+      );
     } else {
-      infoText = "";
+      setInfoAlert("");
     }
-    setInfoAlert(infoText);
   };
 
   const handleItemClicked = (event) => {
     const value = event.target.textContent;
-    if (!value) return;
     setQuery(value);
     setShowSuggestions(false);
     setCurrentCity(value);
-    setInfoAlert("");
-  };
-
-  const handelInputFocus = () => {
-    setSuggestions(allLocations); // Show all locations when input is focused
+    setInfoAlert(""); // Clear the info alert when a suggestion is clicked
   };
 
   return (
@@ -46,24 +40,29 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
         className="city"
         value={query}
         onChange={handleInputChange}
-        onFocus={handelInputFocus}
         placeholder="Search for a city"
       />
       {showSuggestions && suggestions.length > 0 && (
         <ul className="suggestions" role="list">
           {suggestions.map((suggestion) => (
-            <li role="listitem" onClick={handleItemClicked} key={suggestion}>
+            <li key={suggestion} onClick={handleItemClicked} role="listitem">
               {suggestion}
             </li>
           ))}
-          <li role="listitem" key="See all cities" onClick={handleItemClicked}>
+          <li
+            key="See all cities"
+            onClick={() =>
+              handleItemClicked({ target: { textContent: "See all cities" } })
+            }
+            role="listitem"
+          >
             <b>See all cities</b>
           </li>
         </ul>
       )}
       {showSuggestions && suggestions.length === 0 && (
         <p className="no-suggestions" role="alert">
-          <i>No matching suggestions</i>
+          No matching suggestions
         </p>
       )}
     </div>
