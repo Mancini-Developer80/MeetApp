@@ -34,25 +34,13 @@ function App() {
     setAllLocations(extractLocations(allEvents));
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const allEvents = await getEvents();
-  //     const filteredEvents =
-  //       currentCity === "See all cities"
-  //         ? allEvents
-  //         : allEvents.filter((event) => event.location === currentCity);
-  //     setEvents(filteredEvents.slice(0, currentNOE));
-  //     setAllLocations(extractLocations(allEvents));
-  //   };
-  //   fetchData();
-  // }, [currentCity, currentNOE]);
-
   return (
     <div className="App">
       <h1>Meet Up</h1>
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
       </div>
       <CitySearch
         allLocations={allLocations}
