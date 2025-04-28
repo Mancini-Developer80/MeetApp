@@ -84,16 +84,16 @@ ul {
   background-color: #ffffff;
   color: #333;
   padding: 1.2rem 1.5rem;
-  margin: 1rem 0;
+  margin: 1rem auto;
   border-radius: 4px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 70%;
 }
 
-#event-list {
+/* #event-list {
   max-width: 70%;
   margin: 0 auto;
-}
+} */
 
 @media (max-width: 768px) {
   .App {
