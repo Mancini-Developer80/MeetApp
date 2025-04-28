@@ -23,28 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
-                <span class="strong">94.73% </span>
-                <span class="quiet">Statements</span>
-                <span class='fraction'>18/19</span>
-=======
                 <span class="strong">89.47% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>17/19</span>
->>>>>>> recharts
             </div>
         
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
-                <span class="strong">70% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>7/10</span>
-=======
                 <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>5/10</span>
->>>>>>> recharts
             </div>
         
             
@@ -56,15 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
-                <span class="strong">94.73% </span>
-                <span class="quiet">Lines</span>
-                <span class='fraction'>18/19</span>
-=======
                 <span class="strong">89.47% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>17/19</span>
->>>>>>> recharts
             </div>
         
             
@@ -140,9 +122,6 @@
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
-<<<<<<< HEAD
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-=======
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
@@ -151,49 +130,14 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
->>>>>>> recharts
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
-<span class="cline-any cline-yes">51x</span>
-<span class="cline-any cline-yes">47x</span>
-<span class="cline-any cline-yes">47x</span>
-<span class="cline-any cline-yes">47x</span>
-<span class="cline-any cline-yes">47x</span>
-<span class="cline-any cline-yes">47x</span>
-<span class="cline-any cline-yes">47x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">47x</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">47x</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">64x</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-=======
->>>>>>> recharts
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">47x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
-=======
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-yes">15x</span>
@@ -230,7 +174,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
->>>>>>> recharts
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -260,10 +203,7 @@ import CityEventsChart from "./components/CityEventsChart";
 import EventGenresChart from "./components/EventGenresChart";
 import { getEvents, extractLocations } from "./api";
 import { InfoAlert, ErrorAlert, WarningAlert } from "./components/Alert";
-<<<<<<< HEAD
-=======
 &nbsp;
->>>>>>> recharts
 function App() {
   const [allLocations, setAllLocations] = useState([]);
   const [currentNOE, setCurrentNOE] = useState(32);
@@ -289,11 +229,7 @@ function App() {
     const filteredEvents =
       currentCity === "See all cities"
         ? allEvents
-<<<<<<< HEAD
-        : allEvents.filter((event) =&gt; event.location === currentCity);
-=======
         : <span class="branch-1 cbranch-no" title="branch not covered" >allEvents.filter(<span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; <span class="cstat-no" title="statement not covered" >event.location === currentCity)</span>;</span>
->>>>>>> recharts
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
   };
@@ -303,11 +239,7 @@ function App() {
       &lt;h1&gt;Meet Up&lt;/h1&gt;
       &lt;div className="alerts-container"&gt;
         {infoAlert.length ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;InfoAlert text={infoAlert} /&gt; </span>: null}
-<<<<<<< HEAD
-        {errorAlert.length ? &lt;ErrorAlert text={errorAlert} /&gt; : null}
-=======
         {errorAlert.length ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;ErrorAlert text={errorAlert} /&gt; </span>: null}
->>>>>>> recharts
         {warningAlert.length ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;WarningAlert text={warningAlert} /&gt; </span>: null}
       &lt;/div&gt;
       &lt;CitySearch
@@ -336,11 +268,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at 2025-04-28T15:00:16.483Z
-=======
-                at 2025-04-28T14:54:32.825Z
->>>>>>> recharts
+                at 2025-04-28T15:27:29.435Z
             </div>
         <script src="../prettify.js"></script>
         <script>

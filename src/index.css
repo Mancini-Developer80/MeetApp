@@ -11,6 +11,14 @@ h1 {
   margin-bottom: 2rem;
 }
 
+h2 {
+  display: inline-block;
+  background-image: linear-gradient(to right, #1796d5, #37beb5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .App {
   background-image: linear-gradient(to right, #37beb5, #105a8c);
   display: flex;
