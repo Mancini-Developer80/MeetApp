@@ -90,6 +90,13 @@ ul {
   max-width: 70%;
 }
 
+.event-details {
+  max-width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   .App {
     max-width: 90%;
