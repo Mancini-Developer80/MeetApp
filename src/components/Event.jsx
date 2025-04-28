@@ -13,8 +13,12 @@ const Event = ({ event }) => {
       <p>{event.location}</p>
       {showDetails && (
         <div data-testid="event-details">
-          <p className="details">{event.description}</p>
-          <p>Created: {event.created}</p>
+          <p className="details">
+            <em> {event.description}</em>
+          </p>
+          <p>
+            <strong>Created:</strong> {event.created}
+          </p>
           <p>
             <strong>Start: </strong> {event.start.dateTime}
           </p>
