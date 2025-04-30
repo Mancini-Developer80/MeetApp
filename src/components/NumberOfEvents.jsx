@@ -27,6 +27,7 @@ const NumberOfEvents = ({ onNumberChange, setErrorAlert }) => {
         value={number}
         onChange={handleInputChange}
         min="1"
+        max="32"
         data-testid="number-of-events-input"
       />
     </div>
