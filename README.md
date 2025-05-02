@@ -89,3 +89,45 @@
   - **GIVEN** the user has selected a specific event,  
   - **WHEN** they navigate to the event details page,  
   - **THEN** a chart displaying the event’s data is shown in visual format.
+ 
+## **Installation**
+
+To run the application locally, follow these steps:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Mancini-Developer80/meetup-app.git
+   cd meetup-app
+2. **Install Dependencies**: Ensure you have Node.js installed, then run:
+    ```bash
+    npm install
+3. **Start the Develompment Server**:
+    ```bash
+    npm run dev
+4. **Buildo for Production**: To create a production build, run:
+    ```bash
+    npm run build
+5. **Preview The Production preview**:
+    ```bash
+    npm run preview
+---
+
+## **Technologies Used**
+
+- **React**: For building the user interface.
+- **Recharts**: For visualizing event data with charts.
+- **React-Select**: For the city dropdown menu.
+- **Workbox**: For offline functionality and service worker integration.
+- **Jest**: For unit testing.
+- **Vite**: For fast development and production builds.
+
+
+
+ 
+
+  
+
+
+
+
+   
